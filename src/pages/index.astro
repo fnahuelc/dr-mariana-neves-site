@@ -1,0 +1,39 @@
+---
+import AboutDoctor from '../components/AboutDoctor.astro';
+import CTASection from '../components/CTASection.astro';
+import ConditionsSection from '../components/ConditionsSection.astro';
+import FAQPreview from '../components/FAQPreview.astro';
+import Hero from '../components/Hero.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import TypebotPlaceholder from '../components/TypebotPlaceholder.astro';
+import MainLayout from '../layouts/MainLayout.astro';
+import { conditions, faqs, siteConfig, steps, trustHighlights } from '../data/site';
+---
+
+<MainLayout>
+  <Hero
+    title={siteConfig.heroTitle}
+    description={siteConfig.heroDescription}
+    primaryLabel={siteConfig.whatsappLabel}
+    primaryHref={siteConfig.whatsappUrl}
+    secondaryLabel="Ver dúvidas frequentes"
+    secondaryHref="/faq"
+  />
+
+  <TrustStrip items={trustHighlights} />
+  <HowItWorks steps={steps} />
+  <TypebotPlaceholder />
+  <AboutDoctor />
+  <ConditionsSection items={conditions} />
+  <FAQPreview items={faqs} />
+  <CTASection
+    eyebrow="Agendamento e próximo passo"
+    title="Vamos estruturar seu atendimento com calma e segurança."
+    description="Substitua este texto pela proposta final da marca, reforçando disponibilidade, acolhimento e o canal principal de conversão."
+    primaryLabel={siteConfig.whatsappLabel}
+    primaryHref={siteConfig.whatsappUrl}
+    secondaryLabel="Falar com a equipe"
+    secondaryHref="/contact"
+  />
+</MainLayout>

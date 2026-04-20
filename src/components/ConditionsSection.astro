@@ -1,0 +1,51 @@
+---
+interface Condition {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  items: Condition[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Para quem é esta consulta</p>
+      <h2 class="section-title">Situações em que o atendimento online pode ser uma excelente escolha.</h2>
+      <p class="section-lead">
+        O objetivo aqui é orientar o paciente com transparência: mostrar onde o serviço agrega valor e deixar claro quando o cuidado presencial é indispensável.
+      </p>
+    </div>
+
+    <div class="grid grid-2">
+      {items.map((item) => (
+        <article class="card condition-card">
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-head {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .condition-card h3 {
+    margin: 0 0 0.65rem;
+    font-size: 1.2rem;
+  }
+
+  .condition-card p {
+    margin: 0;
+    color: var(--color-text-muted);
+  }
+</style>

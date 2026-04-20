@@ -1,0 +1,45 @@
+---
+import CTASection from '../components/CTASection.astro';
+import FAQList from '../components/FAQList.astro';
+import MainLayout from '../layouts/MainLayout.astro';
+import { faqs, siteConfig } from '../data/site';
+---
+
+<MainLayout
+  title={`FAQ | ${siteConfig.brandName}`}
+  description="Perguntas frequentes sobre a consulta médica online, funcionamento do atendimento e próximos passos para pacientes no Brasil."
+>
+  <section class="section">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">FAQ</p>
+        <h1 class="section-title">Informações claras para que o paciente chegue à consulta com tranquilidade.</h1>
+        <p class="section-lead">
+          Esta página pode concentrar dúvidas sobre elegibilidade do atendimento online, duração da consulta, emissão de documentos e orientações gerais.
+        </p>
+      </div>
+
+      <div class="card prose">
+        <p>
+          Ajuste as respostas de acordo com a prática da médica, políticas da clínica e regras do atendimento remoto. Mantenha sempre um tom direto, calmo e tecnicamente responsável.
+        </p>
+        <p>{siteConfig.disclaimer}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <FAQList items={faqs} />
+    </div>
+  </section>
+
+  <CTASection
+    title="Ainda tem alguma dúvida antes de agendar?"
+    description="Direcione o paciente para o canal de atendimento mais adequado e deixe o processo de decisão mais simples."
+    primaryLabel={siteConfig.whatsappLabel}
+    primaryHref={siteConfig.whatsappUrl}
+    secondaryLabel="Ir para contato"
+    secondaryHref="/contact"
+  />
+</MainLayout>

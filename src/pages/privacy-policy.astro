@@ -1,0 +1,49 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { siteConfig } from '../data/site';
+---
+
+<MainLayout
+  title={`Política de Privacidade | ${siteConfig.brandName}`}
+  description="Modelo inicial de Política de Privacidade para serviço médico online com pacientes no Brasil."
+>
+  <section class="section">
+    <div class="container prose card">
+      <p class="eyebrow">Política de Privacidade</p>
+      <h1 class="section-title">Modelo inicial para adequação à LGPD e às rotinas da clínica.</h1>
+      <p>
+        Este texto é um placeholder de estrutura. Antes da publicação, revise com apoio jurídico e operacional para refletir os fluxos reais de coleta, armazenamento e tratamento de dados do consultório.
+      </p>
+
+      <h2>1. Quais dados podem ser coletados</h2>
+      <p>
+        Nome, e-mail, telefone, informações enviadas por formulários, mensagens de WhatsApp, dados de navegação e demais elementos fornecidos voluntariamente pelo paciente durante a jornada de contato e atendimento.
+      </p>
+
+      <h2>2. Finalidades do tratamento</h2>
+      <p>
+        Agendamento, comunicação com pacientes, organização administrativa, prestação de atendimento médico, cumprimento de obrigações legais e melhoria da experiência digital do site.
+      </p>
+
+      <h2>3. Base legal e compartilhamento</h2>
+      <p>
+        Descreva aqui as bases legais aplicáveis, os operadores envolvidos, eventuais plataformas terceiras e hipóteses de compartilhamento estritamente necessárias para a prestação do serviço.
+      </p>
+
+      <h2>4. Segurança e retenção</h2>
+      <p>
+        Informe as medidas técnicas e administrativas adotadas para proteção dos dados, o prazo de retenção e os critérios para descarte ou anonimização das informações.
+      </p>
+
+      <h2>5. Direitos do titular</h2>
+      <p>
+        Explique como o paciente pode solicitar acesso, correção, exclusão, portabilidade, revogação de consentimento e demais direitos previstos na legislação brasileira.
+      </p>
+
+      <h2>6. Contato para privacidade</h2>
+      <p>
+        Defina o canal oficial para dúvidas sobre privacidade, como {siteConfig.email}, e indique o responsável interno ou encarregado quando aplicável.
+      </p>
+    </div>
+  </section>
+</MainLayout>

@@ -1,0 +1,131 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  primaryLabel: string;
+  primaryHref: string;
+  secondaryLabel: string;
+  secondaryHref: string;
+}
+
+const { title, description, primaryLabel, primaryHref, secondaryLabel, secondaryHref } = Astro.props;
+---
+
+<section class="hero section">
+  <div class="container hero-grid">
+    <div class="hero-copy fade-up">
+      <p class="eyebrow">Teleconsulta premium e acolhedora</p>
+      <h1>{title}</h1>
+      <p class="hero-description">{description}</p>
+      <div class="button-row">
+        <a class="button button-primary" href={primaryHref} target="_blank" rel="noreferrer">{primaryLabel}</a>
+        <a class="button button-secondary" href={secondaryHref}>{secondaryLabel}</a>
+      </div>
+      <ul class="inline-list hero-pills">
+        <li class="inline-pill">Consulta individual</li>
+        <li class="inline-pill">Atendimento em todo o Brasil</li>
+        <li class="inline-pill">Linguagem clara e humana</li>
+      </ul>
+    </div>
+
+    <div class="hero-card card fade-up-delay">
+      <div class="doctor-placeholder">
+        <span>Imagem da médica</span>
+      </div>
+      <div class="doctor-summary">
+        <p class="badge">Marca e credenciais</p>
+        <h2>Dra. [Nome da Médica]</h2>
+        <p>[Especialidade] | CRM/UF 000000</p>
+        <p class="muted">
+          Substitua esta área pela fotografia oficial, selo de credenciais e diferenciais principais da marca médica.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-top: 3rem;
+  }
+
+  .hero-grid {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .hero-copy h1 {
+    margin: 1rem 0 1.25rem;
+    font-family: var(--font-heading);
+    font-size: clamp(3.4rem, 7vw, 6.1rem);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+  }
+
+  .hero-description {
+    max-width: 38rem;
+    margin: 0 0 1.6rem;
+    font-size: 1.08rem;
+    color: var(--color-text-muted);
+  }
+
+  .hero-pills {
+    margin-top: 1.35rem;
+  }
+
+  .hero-card {
+    display: grid;
+    gap: 1.2rem;
+    padding: 1.25rem;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(239, 246, 251, 0.94)),
+      #ffffff;
+  }
+
+  .doctor-placeholder {
+    min-height: 21rem;
+    border-radius: 1.75rem;
+    background:
+      linear-gradient(135deg, rgba(219, 234, 245, 0.92), rgba(255, 255, 255, 0.72)),
+      repeating-linear-gradient(
+        135deg,
+        rgba(90, 154, 197, 0.08),
+        rgba(90, 154, 197, 0.08) 18px,
+        transparent 18px,
+        transparent 38px
+      );
+    display: grid;
+    place-items: center;
+    color: var(--color-primary-dark);
+    font-weight: 700;
+  }
+
+  .doctor-summary h2 {
+    margin: 0 0 0.45rem;
+    font-family: var(--font-heading);
+    font-size: 2.25rem;
+  }
+
+  .doctor-summary p {
+    margin: 0.2rem 0;
+  }
+
+  .badge {
+    display: inline-flex;
+    width: fit-content;
+    margin-bottom: 0.55rem;
+    padding: 0.45rem 0.8rem;
+    border-radius: var(--radius-pill);
+    background: rgba(219, 234, 245, 0.78);
+    color: var(--color-primary-dark);
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+
+  @media (min-width: 920px) {
+    .hero-grid {
+      grid-template-columns: 1.06fr 0.94fr;
+    }
+  }
+</style>

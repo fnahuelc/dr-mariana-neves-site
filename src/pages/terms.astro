@@ -1,0 +1,49 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { siteConfig } from '../data/site';
+---
+
+<MainLayout
+  title={`Termos de Uso | ${siteConfig.brandName}`}
+  description="Modelo inicial de Termos de Uso para site institucional de consulta médica online."
+>
+  <section class="section">
+    <div class="container prose card">
+      <p class="eyebrow">Termos de Uso</p>
+      <h1 class="section-title">Estrutura base para as regras de navegação e uso do site.</h1>
+      <p>
+        Este conteúdo deve ser adaptado à operação real da médica e aos canais efetivamente usados no atendimento. O modelo abaixo serve como ponto de partida para produção.
+      </p>
+
+      <h2>1. Finalidade do site</h2>
+      <p>
+        O site tem caráter institucional e informativo, apresentando o serviço de consulta médica online, suas condições gerais de contato e orientações preliminares ao paciente.
+      </p>
+
+      <h2>2. Limites das informações publicadas</h2>
+      <p>
+        O conteúdo do site não substitui consulta médica individual, diagnóstico, prescrição ou conduta clínica personalizada. Situações urgentes exigem busca imediata por atendimento adequado.
+      </p>
+
+      <h2>3. Agendamento e canais de atendimento</h2>
+      <p>
+        Explique aqui como funcionam solicitação de agendamento, confirmação, remarcação, cancelamento, política de atraso e canais aceitos para contato administrativo.
+      </p>
+
+      <h2>4. Propriedade intelectual</h2>
+      <p>
+        Textos, identidade visual, imagens e demais materiais do site não podem ser reproduzidos sem autorização, salvo quando expressamente permitido.
+      </p>
+
+      <h2>5. Responsabilidades do usuário</h2>
+      <p>
+        O usuário se compromete a fornecer informações verdadeiras, utilizar o site de forma lícita e não tentar interferir em sua segurança ou disponibilidade.
+      </p>
+
+      <h2>6. Atualizações destes termos</h2>
+      <p>
+        Informe que os termos podem ser alterados periodicamente, com publicação da versão vigente nesta página e atualização da data de revisão quando aplicável.
+      </p>
+    </div>
+  </section>
+</MainLayout>

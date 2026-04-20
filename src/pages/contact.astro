@@ -1,0 +1,73 @@
+---
+import CTASection from '../components/CTASection.astro';
+import MainLayout from '../layouts/MainLayout.astro';
+import { siteConfig } from '../data/site';
+---
+
+<MainLayout
+  title={`Contato | ${siteConfig.brandName}`}
+  description="Canais de contato, horários de atendimento e orientações para agendamento da consulta médica online."
+>
+  <section class="section">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">Contato</p>
+        <h1 class="section-title">Escolha o melhor canal para iniciar seu atendimento.</h1>
+        <p class="section-lead">
+          Esta página foi pensada para converter com clareza: destaque o canal principal, reforce o horário de resposta e mantenha as orientações simples.
+        </p>
+      </div>
+
+      <div class="card prose">
+        <p>{siteConfig.onlineCoverage}</p>
+        <p>{siteConfig.addressLabel}</p>
+        <p>{siteConfig.disclaimer}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container grid grid-3">
+      <article class="card">
+        <h2>WhatsApp</h2>
+        <p class="muted">
+          Este deve ser o link principal de conversão para pacientes novos e recorrentes.
+        </p>
+        <!-- Replace the WhatsApp URL in src/data/site.ts with the official number. -->
+        <a class="button button-primary" href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer">
+          {siteConfig.whatsappLabel}
+        </a>
+      </article>
+
+      <article class="card">
+        <h2>E-mail</h2>
+        <p class="muted">Use para demandas administrativas, envio de documentos e retorno da equipe.</p>
+        <a class="button button-secondary" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+      </article>
+
+      <article class="card">
+        <h2>Horário de atendimento</h2>
+        <p class="muted">{siteConfig.contactHours}</p>
+        <p class="muted">Telefone de apoio: {siteConfig.phoneDisplay}</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container card prose">
+      <h2>Orientações antes da consulta</h2>
+      <ul>
+        <li>Separe exames anteriores, lista de medicamentos em uso e principais dúvidas.</li>
+        <li>Garanta conexão estável, ambiente reservado e documento de identificação por perto.</li>
+        <li>Se houver sintomas graves ou rápida piora clínica, procure atendimento presencial imediato.</li>
+      </ul>
+    </div>
+  </section>
+
+  <CTASection
+    title="Atendimento humano desde o primeiro contato."
+    description="Finalize esta página com o convite principal para agendamento e uma promessa realista de resposta da equipe."
+    primaryLabel={siteConfig.whatsappLabel}
+    primaryHref={siteConfig.whatsappUrl}
+  />
+</MainLayout>

@@ -1,0 +1,61 @@
+---
+import { siteConfig } from '../data/site';
+---
+
+<section class="section surface-soft">
+  <div class="container split">
+    <div class="about-image card">
+      <div class="portrait-placeholder">Foto profissional da médica</div>
+      <p class="muted">Substitua por retrato oficial, fundo neutro e consistência com a marca visual.</p>
+    </div>
+
+    <div class="about-copy">
+      <p class="eyebrow">Sobre a médica</p>
+      <h2 class="section-title">Autoridade serena, escuta real e um cuidado pensado para o digital.</h2>
+      <p class="section-lead">{siteConfig.doctorBio}</p>
+      <div class="card credentials-card">
+        <h3>Credenciais e posicionamento</h3>
+        <p>{siteConfig.doctorCredentials}</p>
+        <p>{siteConfig.crm}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-image {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .portrait-placeholder {
+    min-height: 28rem;
+    border-radius: 1.9rem;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--color-primary-dark);
+    font-weight: 700;
+    background:
+      radial-gradient(circle at top, rgba(255, 255, 255, 0.86), transparent 38%),
+      linear-gradient(135deg, rgba(217, 232, 243, 0.9), rgba(255, 255, 255, 0.78));
+  }
+
+  .about-copy {
+    display: grid;
+    gap: 1rem;
+    align-content: center;
+  }
+
+  .credentials-card h3,
+  .credentials-card p {
+    margin: 0;
+  }
+
+  .credentials-card {
+    display: grid;
+    gap: 0.55rem;
+    max-width: 32rem;
+  }
+</style>

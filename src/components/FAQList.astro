@@ -1,0 +1,50 @@
+---
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FaqItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="faq-list">
+  {items.map((item) => (
+    <details class="faq-item card">
+      <summary>{item.question}</summary>
+      <p>{item.answer}</p>
+    </details>
+  ))}
+</div>
+
+<style>
+  .faq-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .faq-item {
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .faq-item summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 1.35rem 1.5rem;
+    font-weight: 700;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item p {
+    margin: 0;
+    padding: 0 1.5rem 1.35rem;
+    color: var(--color-text-muted);
+  }
+</style>

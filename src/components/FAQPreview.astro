@@ -1,0 +1,58 @@
+---
+import type { faqs as faqList } from '../data/site';
+
+interface Props {
+  items: typeof faqList;
+  limit?: number;
+}
+
+const { items, limit = 3 } = Astro.props;
+const previewItems = items.slice(0, limit);
+---
+
+<section class="section-sm">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Perguntas frequentes</p>
+      <h2 class="section-title">As dúvidas mais comuns antes da primeira consulta.</h2>
+      <p class="section-lead">
+        Use esta prévia para responder objeções importantes com serenidade. A página completa pode aprofundar informações operacionais e legais.
+      </p>
+    </div>
+
+    <div class="grid grid-3 faq-grid">
+      {previewItems.map((item) => (
+        <article class="card">
+          <h3>{item.question}</h3>
+          <p>{item.answer}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="button-row faq-actions">
+      <a class="button button-secondary" href="/faq">Ver todas as perguntas</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-head {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .faq-grid h3 {
+    margin: 0 0 0.75rem;
+    font-size: 1.1rem;
+  }
+
+  .faq-grid p {
+    margin: 0;
+    color: var(--color-text-muted);
+  }
+
+  .faq-actions {
+    margin-top: 1.5rem;
+  }
+</style>

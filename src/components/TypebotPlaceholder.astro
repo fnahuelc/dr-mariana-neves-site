@@ -1,0 +1,74 @@
+---
+import { siteConfig } from '../data/site';
+---
+
+<section class="section">
+  <div class="container">
+    <div class="typebot-shell">
+      <div>
+        <p class="eyebrow">Triagem automatizada</p>
+        <h2 class="section-title">Espaço reservado para o fluxo do Typebot.</h2>
+        <p class="section-lead">
+          Use esta área para incorporar a experiência de captação, qualificação ou pré-atendimento. O layout já reserva destaque visual e contexto para a integração.
+        </p>
+      </div>
+
+      <div class="typebot-frame" aria-label="Área reservada para Typebot">
+        <!-- Replace this placeholder with the official Typebot embed script or iframe. -->
+        <!-- Example identifier placeholder: {siteConfig.typebotPublicId} -->
+        <p>Placeholder do embed Typebot</p>
+        <span>ID público atual: {siteConfig.typebotPublicId}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .typebot-shell {
+    display: grid;
+    gap: 1.5rem;
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(237, 245, 250, 0.94));
+    border: 1px solid rgba(56, 97, 128, 0.12);
+  }
+
+  .typebot-frame {
+    min-height: 24rem;
+    border-radius: 1.7rem;
+    border: 1.5px dashed rgba(47, 111, 156, 0.28);
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(225, 239, 248, 0.72)),
+      repeating-linear-gradient(
+        0deg,
+        rgba(90, 154, 197, 0.05),
+        rgba(90, 154, 197, 0.05) 18px,
+        transparent 18px,
+        transparent 38px
+      );
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--color-primary-dark);
+  }
+
+  .typebot-frame p,
+  .typebot-frame span {
+    margin: 0.2rem 0;
+    font-weight: 700;
+  }
+
+  .typebot-frame span {
+    color: var(--color-text-muted);
+    font-weight: 600;
+  }
+
+  @media (min-width: 960px) {
+    .typebot-shell {
+      grid-template-columns: 0.9fr 1.1fr;
+      align-items: center;
+    }
+  }
+</style>

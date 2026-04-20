@@ -1,0 +1,75 @@
+---
+interface Step {
+  number: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  steps: Step[];
+}
+
+const { steps } = Astro.props;
+---
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Como funciona</p>
+      <h2 class="section-title">Um processo simples, organizado e humano em cada contato.</h2>
+      <p class="section-lead">
+        A estrutura abaixo transmite clareza operacional sem perder o tom acolhedor que um serviço médico premium precisa manter.
+      </p>
+    </div>
+
+    <div class="grid grid-3 steps-grid">
+      {steps.map((step) => (
+        <article class="card step-card">
+          <p class="step-number">{step.number}</p>
+          <h3>{step.title}</h3>
+          <p>{step.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-head {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .step-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .step-card::after {
+    content: '';
+    position: absolute;
+    inset: auto -2rem -2rem auto;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    background: rgba(219, 234, 245, 0.54);
+  }
+
+  .step-number {
+    margin: 0 0 1.2rem;
+    color: var(--color-primary-dark);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+  }
+
+  .step-card h3 {
+    margin: 0 0 0.7rem;
+    font-size: 1.2rem;
+  }
+
+  .step-card p:last-child {
+    margin: 0;
+    color: var(--color-text-muted);
+  }
+</style>
