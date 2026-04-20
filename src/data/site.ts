@@ -1,38 +1,39 @@
 // Replace the placeholders below with the final branding, doctor credentials,
 // WhatsApp number, and legal copy before publishing the production site.
 export const siteConfig = {
-  brandName: 'Dra. [Nome da Médica]',
-  specialty: 'Medicina Clínica Integrativa',
+  brandName: 'Dra. Mariana Moreira Neves',
+  specialty: 'Medicina de Emergência',
   crm: 'CRM/UF 000000',
-  heroTitle: 'Consulta médica online com presença, clareza e cuidado humano.',
+  heroTitle: 'Consulta médica online com escuta qualificada, clareza clínica e cuidado humano.',
   heroDescription:
-    'Atendimento médico online para pacientes em todo o Brasil, com uma experiência acolhedora, segura e organizada do primeiro contato ao plano de cuidado.',
-  siteTitle: 'Dra. [Nome da Médica] | Consulta Médica Online',
+    'Atendimento médico online para pacientes em todo o Brasil, com experiência em urgência, emergência e telemedicina, em uma jornada acolhedora, segura e organizada do primeiro contato ao plano de cuidado.',
+  siteTitle: 'Dra. Mariana Moreira Neves | Consulta Médica Online',
   siteDescription:
-    'Serviço médico online com linguagem clara, atendimento individualizado e acompanhamento profissional para adultos no Brasil.',
-  whatsappUrl: 'https://wa.me/5500000000000',
+    'Serviço de consulta médica online com linguagem clara, atendimento individualizado e experiência clínica em urgência, emergência e telemedicina no Brasil.',
+  whatsappUrl: 'https://wa.me/553186711996',
   whatsappLabel: 'Falar no WhatsApp',
-  email: 'contato@seudominio.com.br',
-  phoneDisplay: '(00) 00000-0000',
+  email: 'mariana.hcufmg@gmail.com',
+  phoneDisplay: '+55 31 8671-1996',
   contactHours: 'Segunda a sexta, das 8h às 18h',
   onlineCoverage: 'Atendimento online para pacientes em todo o Brasil.',
   addressLabel: 'Consulta remota mediante agendamento prévio.',
+  linkedinUrl: 'https://www.linkedin.com/in/mariana-neves-232a16279/',
   typebotPublicId: '[SEU_TYPEBOT_PUBLIC_ID]',
   disclaimer:
     'Este site apresenta informações institucionais e não substitui avaliação médica individual. Em caso de urgência ou emergência, procure atendimento imediato.',
   footerNote:
-    'Conteúdo ilustrativo para estruturação do site. Substitua o nome, CRM, contatos e textos legais antes do lançamento.',
+    'Conteúdo ilustrativo para estruturação do site. Revise CRM, contatos e textos legais antes do lançamento.',
   doctorBio:
-    'A Dra. [Nome da Médica] oferece consultas online com foco em escuta qualificada, tomada de decisão compartilhada e acompanhamento cuidadoso. Aqui entra uma apresentação breve sobre formação, áreas de atuação, abordagem clínica e diferenciais do atendimento.',
+    'A Dra. Mariana Moreira Neves é médica formada pela Universidade Federal de Viçosa, com residência em Medicina de Emergência pelo Hospital das Clínicas da UFMG. Sua atuação reúne experiência em pronto atendimento, terapia intensiva e telemedicina, com foco em escuta qualificada, tomada de decisão compartilhada e condução clínica segura no ambiente digital.',
   doctorCredentials:
-    '[Especialidade principal] | [Subespecialidade] | [Instituição de formação]'
+    'Médica | Especialista em Medicina de Emergência | UFV e HC-UFMG'
 } as const;
 
 export const trustHighlights = [
   'Atendimento online em todo o Brasil',
   'Consulta individual com linguagem clara',
-  'Privacidade e acolhimento em cada etapa',
-  'Orientação segura com foco em continuidade'
+  'Experiência em urgência, emergência e telemedicina',
+  'Privacidade e acolhimento em cada etapa'
 ];
 
 export const steps = [

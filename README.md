@@ -1,14 +1,14 @@
 # dr-mariana-neves-site
 
-Starter Astro para uma marca médica pessoal com foco em consulta online no Brasil.
+Astro starter for a premium personal doctor brand focused on online consultations in Brazil.
 
 ## Stack
 
 - Astro
-- Site estático
-- Deploy em GitHub Pages via GitHub Actions
+- Static site
+- GitHub Pages deployment via GitHub Actions
 
-## Estrutura
+## Structure
 
 ```text
 .
@@ -29,7 +29,7 @@ Starter Astro para uma marca médica pessoal com foco em consulta online no Bras
 └── tsconfig.json
 ```
 
-## Como rodar
+## Run locally
 
 ```bash
 npm install
@@ -42,14 +42,14 @@ npm run dev
 npm run build
 ```
 
-## Personalização rápida
+## Quick customization
 
-- Atualize dados de marca, CRM, contatos e links em `src/data/site.ts`
-- Substitua os placeholders de favicon e Open Graph em `public/`
-- Insira o embed real do Typebot em `src/components/TypebotPlaceholder.astro`
-- Revise o conteúdo legal em `src/pages/privacy-policy.astro` e `src/pages/terms.astro`
-- Se o repositório ou usuário do GitHub mudarem, ajuste `astro.config.mjs`
+- Update brand data, CRM, contact details, and links in `src/data/site.ts`
+- Replace the favicon and Open Graph placeholders in `public/`
+- Insert the real Typebot embed in `src/components/TypebotPlaceholder.astro`
+- Review the legal content in `src/pages/privacy-policy.astro` and `src/pages/terms.astro`
+- If the repository name or GitHub username changes, update `astro.config.mjs`
 
 ## GitHub Pages
 
-O workflow em `.github/workflows/deploy.yml` faz o build estático e publica a pasta `dist/` no GitHub Pages quando houver push para `main`.
+The workflow in `.github/workflows/deploy.yml` builds the static site and publishes the `dist/` folder to GitHub Pages on pushes to `main`.

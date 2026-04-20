@@ -1,4 +1,6 @@
 ---
+import { siteConfig } from '../data/site';
+
 interface Props {
   title: string;
   description: string;
@@ -34,8 +36,8 @@ const { title, description, primaryLabel, primaryHref, secondaryLabel, secondary
       </div>
       <div class="doctor-summary">
         <p class="badge">Marca e credenciais</p>
-        <h2>Dra. [Nome da Médica]</h2>
-        <p>[Especialidade] | CRM/UF 000000</p>
+        <h2>{siteConfig.brandName}</h2>
+        <p>{siteConfig.specialty} | {siteConfig.crm}</p>
         <p class="muted">
           Substitua esta área pela fotografia oficial, selo de credenciais e diferenciais principais da marca médica.
         </p>
