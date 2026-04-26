@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --color-background: #f8fbfe;
+  --color-background: #f5f0e4;
   --color-surface: #ffffff;
-  --color-surface-muted: #eef5fa;
-  --color-primary: #5a9ac5;
-  --color-primary-dark: #2f6f9c;
-  --color-primary-soft: #dbeaf5;
-  --color-text: #173046;
-  --color-text-muted: #5b7286;
-  --color-border: rgba(56, 97, 128, 0.14);
-  --color-shadow: rgba(23, 48, 70, 0.08);
-  --color-shadow-strong: rgba(33, 69, 99, 0.16);
+  --color-surface-muted: #ece6d6;
+  --color-primary: #75986f;
+  --color-primary-dark: #355d44;
+  --color-primary-soft: #dce8c9;
+  --color-text: #213226;
+  --color-text-muted: #5f6c5d;
+  --color-border: rgba(53, 93, 68, 0.14);
+  --color-shadow: rgba(33, 50, 38, 0.08);
+  --color-shadow-strong: rgba(33, 50, 38, 0.18);
   --radius-sm: 14px;
   --radius-md: 22px;
   --radius-lg: 34px;
@@ -34,8 +34,9 @@ body {
   font-family: var(--font-body);
   color: var(--color-text);
   background:
-    radial-gradient(circle at top left, rgba(219, 234, 245, 0.65), transparent 35%),
-    linear-gradient(180deg, #fcfeff 0%, var(--color-background) 56%, #f4f8fc 100%);
+    radial-gradient(circle at top left, rgba(220, 232, 197, 0.5), transparent 28%),
+    radial-gradient(circle at top right, rgba(255, 248, 229, 0.7), transparent 32%),
+    linear-gradient(180deg, #fffdf7 0%, var(--color-background) 55%, #eee7d7 100%);
   line-height: 1.6;
 }
 
@@ -87,7 +88,7 @@ main {
   gap: 0.5rem;
   padding: 0.55rem 0.95rem;
   border-radius: var(--radius-pill);
-  background: rgba(219, 234, 245, 0.86);
+  background: rgba(220, 232, 197, 0.86);
   color: var(--color-primary-dark);
   font-size: 0.84rem;
   font-weight: 700;
@@ -112,7 +113,7 @@ main {
   padding: 1.75rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 252, 245, 0.9);
   box-shadow: 0 18px 40px -28px var(--color-shadow-strong);
 }
 
@@ -147,13 +148,13 @@ main {
 .button-primary {
   background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
   color: #ffffff;
-  box-shadow: 0 18px 30px -18px rgba(47, 111, 156, 0.65);
+  box-shadow: 0 18px 30px -18px rgba(53, 93, 68, 0.46);
 }
 
 .button-secondary {
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 252, 245, 0.92);
   color: var(--color-text);
-  border-color: rgba(56, 97, 128, 0.16);
+  border-color: rgba(53, 93, 68, 0.16);
 }
 
 .muted {
@@ -161,7 +162,7 @@ main {
 }
 
 .surface-soft {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(240, 247, 252, 0.86));
+  background: linear-gradient(180deg, rgba(255, 252, 245, 0.96), rgba(245, 240, 226, 0.86));
 }
 
 .split {
@@ -182,7 +183,7 @@ main {
 .inline-pill {
   padding: 0.7rem 1rem;
   border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 252, 245, 0.92);
   border: 1px solid var(--color-border);
   color: var(--color-text-muted);
 }

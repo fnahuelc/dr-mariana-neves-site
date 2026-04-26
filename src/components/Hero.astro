@@ -16,31 +16,81 @@ const { title, description, primaryLabel, primaryHref, secondaryLabel, secondary
 <section class="hero section">
   <div class="container hero-grid">
     <div class="hero-copy fade-up">
-      <p class="eyebrow">Teleconsulta premium e acolhedora</p>
+      <p class="eyebrow">Consulta online simples e direta</p>
       <h1>{title}</h1>
       <p class="hero-description">{description}</p>
+      <div class="hero-trust">
+        <strong>Agenda remota em todo o Brasil</strong>
+        <span>Clareza clínica, escuta qualificada e orientação segura para decidir o próximo passo.</span>
+      </div>
       <div class="button-row">
         <a class="button button-primary" href={primaryHref} target="_blank" rel="noreferrer">{primaryLabel}</a>
         <a class="button button-secondary" href={secondaryHref}>{secondaryLabel}</a>
       </div>
       <ul class="inline-list hero-pills">
         <li class="inline-pill">Consulta individual</li>
-        <li class="inline-pill">Atendimento em todo o Brasil</li>
-        <li class="inline-pill">Linguagem clara e humana</li>
+        <li class="inline-pill">Telemedicina com cuidado humano</li>
+        <li class="inline-pill">Orientação clara e objetiva</li>
       </ul>
     </div>
 
-    <div class="hero-card card fade-up-delay">
-      <div class="doctor-placeholder">
-        <span>Imagem da médica</span>
-      </div>
-      <div class="doctor-summary">
-        <p class="badge">Marca e credenciais</p>
-        <h2>{siteConfig.brandName}</h2>
-        <p>{siteConfig.specialty} | {siteConfig.crm}</p>
-        <p class="muted">
-          Substitua esta área pela fotografia oficial, selo de credenciais e diferenciais principais da marca médica.
-        </p>
+    <div class="hero-card fade-up-delay">
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-orbit hero-orbit-a"></div>
+        <div class="hero-orbit hero-orbit-b"></div>
+        <div class="consult-window">
+          <div class="consult-window__top">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="consult-window__body">
+            <div class="doctor-frame">
+              <div class="doctor-avatar"></div>
+              <div>
+                <p class="badge">Atendimento online</p>
+                <h2>{siteConfig.brandName}</h2>
+                <p>{siteConfig.specialty}</p>
+              </div>
+            </div>
+            <div class="wave-lines">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="status-grid">
+              <article>
+                <strong>Escuta</strong>
+                <p>consulta conduzida com calma</p>
+              </article>
+              <article>
+                <strong>Plano</strong>
+                <p>conduta definida com clareza</p>
+              </article>
+            </div>
+          </div>
+        </div>
+        <div class="floating-note floating-note-primary">
+          <span>Próximo horário</span>
+          <strong>Esta semana</strong>
+        </div>
+        <div class="floating-note floating-note-secondary">
+          <span>Fluxo simples</span>
+          <strong>Mensagem, consulta, orientação</strong>
+        </div>
+        <div class="hero-marquee">
+          <div class="hero-marquee__track">
+            <span>Teleconsulta</span>
+            <span>Revisão de exames</span>
+            <span>Segunda opinião</span>
+            <span>Acompanhamento</span>
+            <span>Teleconsulta</span>
+            <span>Revisão de exames</span>
+            <span>Segunda opinião</span>
+            <span>Acompanhamento</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -48,7 +98,7 @@ const { title, description, primaryLabel, primaryHref, secondaryLabel, secondary
 
 <style>
   .hero {
-    padding-top: 3rem;
+    padding-top: 2.5rem;
   }
 
   .hero-grid {
@@ -72,62 +122,348 @@ const { title, description, primaryLabel, primaryHref, secondaryLabel, secondary
     color: var(--color-text-muted);
   }
 
+  .hero-trust {
+    display: grid;
+    gap: 0.2rem;
+    max-width: 34rem;
+    margin: 0 0 1.5rem;
+    padding-left: 1rem;
+    border-left: 3px solid rgba(61, 112, 74, 0.24);
+  }
+
+  .hero-trust strong {
+    font-size: 1rem;
+  }
+
+  .hero-trust span {
+    color: var(--color-text-muted);
+  }
+
   .hero-pills {
     margin-top: 1.35rem;
   }
 
   .hero-card {
-    display: grid;
-    gap: 1.2rem;
-    padding: 1.25rem;
-    background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(239, 246, 251, 0.94)),
-      #ffffff;
+    position: relative;
+    min-height: 34rem;
   }
 
-  .doctor-placeholder {
-    min-height: 21rem;
-    border-radius: 1.75rem;
-    background:
-      linear-gradient(135deg, rgba(219, 234, 245, 0.92), rgba(255, 255, 255, 0.72)),
-      repeating-linear-gradient(
-        135deg,
-        rgba(90, 154, 197, 0.08),
-        rgba(90, 154, 197, 0.08) 18px,
-        transparent 18px,
-        transparent 38px
-      );
+  .hero-visual {
+    position: relative;
     display: grid;
     place-items: center;
-    color: var(--color-primary-dark);
-    font-weight: 700;
+    min-height: 34rem;
+    padding: 1.4rem;
+    overflow: hidden;
+    border: 1px solid rgba(57, 91, 68, 0.12);
+    border-radius: 2rem;
+    background:
+      radial-gradient(circle at top, rgba(220, 232, 197, 0.78), transparent 38%),
+      linear-gradient(180deg, rgba(255, 250, 240, 0.98), rgba(243, 239, 224, 0.94));
+    box-shadow: 0 32px 60px -40px rgba(42, 64, 40, 0.42);
   }
 
-  .doctor-summary h2 {
-    margin: 0 0 0.45rem;
+  .hero-orbit {
+    position: absolute;
+    border-radius: 999px;
+    border: 1px dashed rgba(61, 112, 74, 0.18);
+    animation: spin 26s linear infinite;
+  }
+
+  .hero-orbit-a {
+    width: 28rem;
+    height: 28rem;
+  }
+
+  .hero-orbit-b {
+    width: 20rem;
+    height: 20rem;
+    animation-direction: reverse;
+    animation-duration: 18s;
+  }
+
+  .consult-window {
+    position: relative;
+    width: min(100%, 27rem);
+    z-index: 1;
+    border: 1px solid rgba(57, 91, 68, 0.14);
+    border-radius: 1.7rem;
+    background: rgba(255, 255, 255, 0.76);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 28px 50px -34px rgba(45, 67, 44, 0.48);
+  }
+
+  .consult-window__top {
+    display: flex;
+    gap: 0.45rem;
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid rgba(57, 91, 68, 0.09);
+  }
+
+  .consult-window__top span {
+    width: 0.62rem;
+    height: 0.62rem;
+    border-radius: 50%;
+    background: rgba(61, 112, 74, 0.24);
+  }
+
+  .consult-window__body {
+    display: grid;
+    gap: 1.2rem;
+    padding: 1.2rem;
+  }
+
+  .doctor-frame {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .doctor-avatar {
+    width: 5.75rem;
+    aspect-ratio: 1;
+    border-radius: 1.4rem;
+    background:
+      radial-gradient(circle at 52% 30%, rgba(255, 255, 255, 0.7), transparent 20%),
+      linear-gradient(145deg, #6f9d7a, #2d553f);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+
+  .consult-window h2 {
+    margin: 0.1rem 0 0.25rem;
     font-family: var(--font-heading);
-    font-size: 2.25rem;
+    font-size: clamp(1.9rem, 4vw, 2.4rem);
+    line-height: 0.95;
   }
 
-  .doctor-summary p {
-    margin: 0.2rem 0;
+  .consult-window p {
+    margin: 0;
   }
 
   .badge {
     display: inline-flex;
     width: fit-content;
-    margin-bottom: 0.55rem;
-    padding: 0.45rem 0.8rem;
+    margin-bottom: 0.4rem;
+    padding: 0.4rem 0.78rem;
     border-radius: var(--radius-pill);
-    background: rgba(219, 234, 245, 0.78);
-    color: var(--color-primary-dark);
-    font-size: 0.9rem;
+    background: rgba(224, 237, 203, 0.82);
+    color: #355d44;
+    font-size: 0.85rem;
     font-weight: 700;
+  }
+
+  .wave-lines {
+    display: grid;
+    gap: 0.7rem;
+  }
+
+  .wave-lines span {
+    height: 0.72rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(112, 153, 121, 0.18), rgba(61, 112, 74, 0.58), rgba(112, 153, 121, 0.18));
+    background-size: 200% 100%;
+    animation: pulse-line 4s ease-in-out infinite;
+  }
+
+  .wave-lines span:nth-child(2) {
+    width: 88%;
+    animation-delay: 180ms;
+  }
+
+  .wave-lines span:nth-child(3) {
+    width: 72%;
+    animation-delay: 360ms;
+  }
+
+  .wave-lines span:nth-child(4) {
+    width: 80%;
+    animation-delay: 540ms;
+  }
+
+  .status-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem;
+  }
+
+  .status-grid article {
+    padding: 0.95rem;
+    border-radius: 1.2rem;
+    background: rgba(250, 247, 237, 0.88);
+    border: 1px solid rgba(57, 91, 68, 0.1);
+  }
+
+  .status-grid strong {
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .status-grid p {
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+  }
+
+  .floating-note {
+    position: absolute;
+    z-index: 2;
+    display: grid;
+    gap: 0.15rem;
+    padding: 0.9rem 1rem;
+    border-radius: 1.1rem;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(57, 91, 68, 0.12);
+    box-shadow: 0 18px 35px -28px rgba(45, 67, 44, 0.5);
+    animation: bob 5.5s ease-in-out infinite;
+  }
+
+  .floating-note span {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+  }
+
+  .floating-note strong {
+    font-size: 0.98rem;
+  }
+
+  .floating-note-primary {
+    top: 2.4rem;
+    right: 1.6rem;
+  }
+
+  .floating-note-secondary {
+    bottom: 4.6rem;
+    left: 1.4rem;
+    animation-delay: 600ms;
+  }
+
+  .hero-marquee {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem 0;
+    overflow: hidden;
+    background: rgba(61, 112, 74, 0.06);
+    border-top: 1px solid rgba(57, 91, 68, 0.08);
+  }
+
+  .hero-marquee__track {
+    display: flex;
+    gap: 0.9rem;
+    width: max-content;
+    padding-left: 1rem;
+    animation: marquee 22s linear infinite;
+  }
+
+  .hero-marquee__track span {
+    padding: 0.6rem 0.95rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(57, 91, 68, 0.1);
+    font-size: 0.9rem;
+    white-space: nowrap;
   }
 
   @media (min-width: 920px) {
     .hero-grid {
       grid-template-columns: 1.06fr 0.94fr;
+    }
+  }
+
+  @media (max-width: 919px) {
+    .hero-card {
+      min-height: auto;
+    }
+
+    .hero-visual {
+      min-height: 30rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-copy h1 {
+      font-size: clamp(2.8rem, 15vw, 4rem);
+    }
+
+    .hero-visual {
+      min-height: 27rem;
+      padding: 1rem;
+    }
+
+    .hero-orbit-a {
+      width: 21rem;
+      height: 21rem;
+    }
+
+    .hero-orbit-b {
+      width: 15rem;
+      height: 15rem;
+    }
+
+    .doctor-frame {
+      grid-template-columns: 1fr;
+    }
+
+    .status-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .floating-note-primary {
+      top: 1rem;
+      right: 1rem;
+    }
+
+    .floating-note-secondary {
+      left: 1rem;
+      bottom: 4.2rem;
+      right: 1rem;
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes bob {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes pulse-line {
+    0%,
+    100% {
+      background-position: 0% 50%;
+      transform: scaleX(0.98);
+      opacity: 0.72;
+    }
+
+    50% {
+      background-position: 100% 50%;
+      transform: scaleX(1);
+      opacity: 1;
     }
   }
 </style>

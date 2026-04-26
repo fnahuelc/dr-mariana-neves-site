@@ -4,12 +4,12 @@ export const siteConfig = {
   brandName: 'Dra. Mariana Moreira Neves',
   specialty: 'Medicina de Emergência',
   crm: 'CRM/UF 000000',
-  heroTitle: 'Consulta médica online com escuta qualificada, clareza clínica e cuidado humano.',
+  heroTitle: 'Consulta online com orientação médica clara, humana e sem excesso de etapas.',
   heroDescription:
-    'Atendimento médico online para pacientes em todo o Brasil, com experiência em urgência, emergência e telemedicina, em uma jornada acolhedora, segura e organizada do primeiro contato ao plano de cuidado.',
+    'Uma página mais direta para quem quer entender rapidamente se este atendimento faz sentido, falar com a equipe e agendar com tranquilidade.',
   siteTitle: 'Dra. Mariana Moreira Neves | Consulta Médica Online',
   siteDescription:
-    'Serviço de consulta médica online com linguagem clara, atendimento individualizado e experiência clínica em urgência, emergência e telemedicina no Brasil.',
+    'Consulta médica online com linguagem clara, jornada simples e atendimento individualizado em todo o Brasil.',
   whatsappUrl: 'https://wa.me/553186711996',
   whatsappLabel: 'Falar no WhatsApp',
   email: 'mariana.hcufmg@gmail.com',
@@ -33,27 +33,27 @@ export const trustHighlights = [
   'Atendimento online em todo o Brasil',
   'Consulta individual com linguagem clara',
   'Experiência em urgência, emergência e telemedicina',
-  'Privacidade e acolhimento em cada etapa'
+  'Orientação segura do primeiro contato ao próximo passo'
 ];
 
 export const steps = [
   {
     number: '01',
-    title: 'Agende com facilidade',
+    title: 'Envie sua mensagem',
     description:
-      'Escolha o melhor canal para iniciar o atendimento, envie suas informações iniciais e receba o direcionamento para a consulta.'
+      'Fale pelo WhatsApp e descreva de forma breve o que você precisa. A equipe orienta o melhor próximo passo.'
   },
   {
     number: '02',
-    title: 'Realize sua teleconsulta',
+    title: 'Faça a consulta online',
     description:
-      'Converse com calma sobre sintomas, histórico, exames e objetivos. O encontro é conduzido com atenção clínica e organização.'
+      'A consulta acontece com escuta cuidadosa, revisão do histórico e definição de uma conduta compatível com o seu quadro.'
   },
   {
     number: '03',
-    title: 'Receba o plano de cuidado',
+    title: 'Saia com um plano claro',
     description:
-      'Ao final, você sai com orientações, pedidos de exames ou documentos médicos quando indicados, sempre dentro dos limites legais da telemedicina.'
+      'Quando indicado, você recebe orientações, pedidos de exames e documentos médicos dentro dos limites legais da telemedicina.'
   }
 ];
 
@@ -74,7 +74,7 @@ export const conditions = [
       'Seguimento de pacientes que buscam rotina de cuidado, monitoramento e orientação médica longitudinal.'
   },
   {
-    title: 'Quando este atendimento nao e indicado',
+    title: 'Quando este atendimento não é indicado',
     description:
       'Situações de urgência, emergência, falta de ar intensa, dor no peito ou sinais neurológicos agudos exigem busca imediata por atendimento presencial.'
   }
