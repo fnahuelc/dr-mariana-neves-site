@@ -9,6 +9,7 @@ interface Props {
 }
 
 const { title, description, primaryLabel, primaryHref, secondaryLabel, secondaryHref } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section class="hero">
@@ -20,7 +21,7 @@ const { title, description, primaryLabel, primaryHref, secondaryLabel, secondary
     The gradient below is shown as fallback until the video file is added.
   -->
   <video class="hero-video" autoplay muted loop playsinline aria-hidden="true">
-    <source src="/mixkit-girl-meditating-in-yoga-pose-at-sunset-4803-hd-ready.mp4" type="video/mp4" />
+    <source src={`${base}/mixkit-girl-meditating-in-yoga-pose-at-sunset-4803-hd-ready.mp4`} type="video/mp4" />
   </video>
   <div class="hero-overlay" aria-hidden="true"></div>
 
