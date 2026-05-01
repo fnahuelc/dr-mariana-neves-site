@@ -1,0 +1,115 @@
+---
+interface Stat {
+  value: number;
+  suffix: string;
+  label: string;
+}
+
+interface Props {
+  items: Stat[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="stats-bar" id="stats-bar">
+  {items.map((stat) => (
+    <div class="stat">
+      <span
+        class="stat-number"
+        data-target={stat.value}
+        data-suffix={stat.suffix}
+      >0{stat.suffix}</span>
+      <span class="stat-label">{stat.label}</span>
+    </div>
+  ))}
+</div>
+
+<style>
+  .stats-bar {
+    display: grid;
+    border-top: 2px solid var(--color-teal);
+    border-bottom: 1px solid var(--color-border-subtle);
+    background: var(--color-surface-muted);
+  }
+
+  .stat {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    text-align: center;
+  }
+
+  .stat + .stat {
+    border-left: 1px solid var(--color-border-subtle);
+  }
+
+  .stat-number {
+    font-family: var(--font-heading);
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-weight: 700;
+    color: var(--color-teal);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: rgba(168, 196, 184, 0.7);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 600px) {
+    .stats-bar {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 599px) {
+    .stat + .stat {
+      border-left: none;
+      border-top: 1px solid var(--color-border-subtle);
+    }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    var bar = document.getElementById('stats-bar');
+    if (!bar) return;
+
+    var triggered = false;
+
+    var observer = new IntersectionObserver(function (entries) {
+      if (triggered || !entries[0].isIntersecting) return;
+      triggered = true;
+      observer.disconnect();
+
+      bar.querySelectorAll('[data-target]').forEach(function (el) {
+        var target = parseInt(el.getAttribute('data-target'), 10);
+        var suffix = el.getAttribute('data-suffix') || '';
+        var duration = 1800;
+        var start = null;
+
+        function easeOutCubic(t) {
+          return 1 - Math.pow(1 - t, 3);
+        }
+
+        function tick(timestamp) {
+          if (!start) start = timestamp;
+          var elapsed = timestamp - start;
+          var progress = Math.min(elapsed / duration, 1);
+          el.textContent = Math.round(target * easeOutCubic(progress)) + suffix;
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.4 });
+
+    observer.observe(bar);
+  })();
+</script>

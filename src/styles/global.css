@@ -1,27 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap');
 
 :root {
-  --color-background: #f5f0e4;
-  --color-surface: #ffffff;
-  --color-surface-muted: #ece6d6;
-  --color-primary: #75986f;
-  --color-primary-dark: #355d44;
-  --color-primary-soft: #dce8c9;
-  --color-text: #213226;
-  --color-text-muted: #5f6c5d;
-  --color-border: rgba(53, 93, 68, 0.14);
-  --color-shadow: rgba(33, 50, 38, 0.08);
-  --color-shadow-strong: rgba(33, 50, 38, 0.18);
-  --radius-sm: 14px;
-  --radius-md: 22px;
-  --radius-lg: 34px;
+  --color-bg: #0D1B2A;
+  --color-surface: #1A2E42;
+  --color-surface-muted: #152638;
+  --color-teal: #3ABFAD;
+  --color-teal-dark: #2a9e8e;
+  --color-teal-dim: rgba(58, 191, 173, 0.12);
+  --color-teal-border: rgba(58, 191, 173, 0.2);
+  --color-text: #FFFFFF;
+  --color-text-muted: #A8C4B8;
+  --color-border: rgba(58, 191, 173, 0.15);
+  --color-border-subtle: rgba(255, 255, 255, 0.07);
+  --color-shadow: rgba(0, 0, 0, 0.3);
+  --color-shadow-strong: rgba(0, 0, 0, 0.5);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
   --radius-pill: 999px;
   --container: 1160px;
-  --font-body: 'Manrope', sans-serif;
-  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Syne', sans-serif;
 }
 
-* {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
@@ -32,11 +34,9 @@ html {
 body {
   margin: 0;
   font-family: var(--font-body);
+  font-weight: 400;
   color: var(--color-text);
-  background:
-    radial-gradient(circle at top left, rgba(220, 232, 197, 0.5), transparent 28%),
-    radial-gradient(circle at top right, rgba(255, 248, 229, 0.7), transparent 32%),
-    linear-gradient(180deg, #fffdf7 0%, var(--color-background) 55%, #eee7d7 100%);
+  background: var(--color-bg);
   line-height: 1.6;
 }
 
@@ -70,38 +70,40 @@ main {
 .section-title {
   margin: 0 0 1rem;
   font-family: var(--font-heading);
-  font-size: clamp(2.4rem, 5vw, 4rem);
-  line-height: 0.95;
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  line-height: 1.05;
   letter-spacing: -0.03em;
+  color: var(--color-text);
 }
 
 .section-lead {
   max-width: 46rem;
   margin: 0;
-  font-size: 1.06rem;
+  font-size: 1rem;
+  font-weight: 300;
   color: var(--color-text-muted);
+  line-height: 1.75;
 }
 
 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.55rem 0.95rem;
-  border-radius: var(--radius-pill);
-  background: rgba(220, 232, 197, 0.86);
-  color: var(--color-primary-dark);
-  font-size: 0.84rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  color: var(--color-teal);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
+  font-family: var(--font-body);
 }
 
 .eyebrow::before {
   content: '';
-  width: 0.48rem;
-  height: 0.48rem;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: var(--color-primary);
+  background: var(--color-teal);
+  flex-shrink: 0;
 }
 
 .grid {
@@ -113,8 +115,12 @@ main {
   padding: 1.75rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  background: rgba(255, 252, 245, 0.9);
-  box-shadow: 0 18px 40px -28px var(--color-shadow-strong);
+  background: var(--color-surface);
+  transition: border-color 0.25s;
+}
+
+.card:hover {
+  border-color: var(--color-teal-border);
 }
 
 .button-row {
@@ -128,16 +134,22 @@ main {
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
-  min-height: 3.2rem;
-  padding: 0.85rem 1.35rem;
-  border-radius: var(--radius-pill);
+  min-height: 3rem;
+  padding: 0.8rem 1.8rem;
+  border-radius: 2px;
   border: 1px solid transparent;
-  font-weight: 700;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
   transition:
-    transform 180ms ease,
-    box-shadow 180ms ease,
-    background-color 180ms ease,
-    border-color 180ms ease;
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.18s ease;
 }
 
 .button:hover,
@@ -146,23 +158,32 @@ main {
 }
 
 .button-primary {
-  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
-  color: #ffffff;
-  box-shadow: 0 18px 30px -18px rgba(53, 93, 68, 0.46);
+  background: var(--color-teal);
+  color: var(--color-bg);
+  border-color: var(--color-teal);
+}
+
+.button-primary:hover,
+.button-primary:focus-visible {
+  background: #4dd4c0;
+  border-color: #4dd4c0;
+  box-shadow: 0 0 24px rgba(58, 191, 173, 0.35);
 }
 
 .button-secondary {
-  background: rgba(255, 252, 245, 0.92);
-  color: var(--color-text);
-  border-color: rgba(53, 93, 68, 0.16);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.82);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.button-secondary:hover,
+.button-secondary:focus-visible {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #fff;
 }
 
 .muted {
   color: var(--color-text-muted);
-}
-
-.surface-soft {
-  background: linear-gradient(180deg, rgba(255, 252, 245, 0.96), rgba(245, 240, 226, 0.86));
 }
 
 .split {
@@ -181,11 +202,12 @@ main {
 }
 
 .inline-pill {
-  padding: 0.7rem 1rem;
-  border-radius: var(--radius-pill);
-  background: rgba(255, 252, 245, 0.92);
-  border: 1px solid var(--color-border);
+  padding: 0.5rem 1rem;
+  border-radius: 2px;
+  background: var(--color-teal-dim);
+  border: 1px solid var(--color-teal-border);
   color: var(--color-text-muted);
+  font-size: 0.85rem;
 }
 
 .prose {
@@ -198,7 +220,7 @@ main {
 .prose h3 {
   color: var(--color-text);
   font-family: var(--font-heading);
-  line-height: 1;
+  line-height: 1.1;
   letter-spacing: -0.02em;
   margin: 2rem 0 0.5rem;
 }
@@ -208,7 +230,7 @@ main {
 }
 
 .prose h3 {
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-size: clamp(1.5rem, 3vw, 2rem);
 }
 
 .prose p,
@@ -221,12 +243,26 @@ main {
   padding-left: 1.2rem;
 }
 
+/* Scroll-triggered reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+  transition-delay: calc(var(--reveal-i, 0) * 90ms);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Legacy fade-up kept for backward compat */
 .fade-up {
   animation: fade-up 700ms ease both;
 }
 
 .fade-up-delay {
-  animation: fade-up 900ms ease both;
+  animation: fade-up 900ms 120ms ease both;
 }
 
 @keyframes fade-up {

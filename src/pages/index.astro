@@ -1,7 +1,14 @@
 ---
-import Hero from '../components/Hero.astro';
 import MainLayout from '../layouts/MainLayout.astro';
-import { conditions, faqs, siteConfig, steps, trustHighlights } from '../data/site';
+import Hero from '../components/Hero.astro';
+import Stats from '../components/Stats.astro';
+import AboutDoctor from '../components/AboutDoctor.astro';
+import CannabinoidExplainer from '../components/CannabinoidExplainer.astro';
+import ConditionsSection from '../components/ConditionsSection.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import FAQList from '../components/FAQList.astro';
+import CTASection from '../components/CTASection.astro';
+import { conditions, faqs, siteConfig, stats, steps } from '../data/site';
 ---
 
 <MainLayout>
@@ -10,247 +17,53 @@ import { conditions, faqs, siteConfig, steps, trustHighlights } from '../data/si
     description={siteConfig.heroDescription}
     primaryLabel={siteConfig.whatsappLabel}
     primaryHref={siteConfig.whatsappUrl}
-    secondaryLabel="Ver dúvidas frequentes"
-    secondaryHref="/faq"
+    secondaryLabel="Conhecer os Tratamentos"
+    secondaryHref="#condicoes"
   />
 
-  <section class="section section-tight">
-    <div class="container home-trust">
-      {trustHighlights.map((item) => (
-        <article class="home-trust__item card">
-          <span></span>
-          <p>{item}</p>
-        </article>
-      ))}
-    </div>
-  </section>
+  <Stats items={stats} />
 
-  <section class="section home-editorial">
-    <div class="container home-editorial__grid">
-      <div class="fade-up">
-        <p class="eyebrow">Quando este formato ajuda</p>
-        <h2 class="section-title">Menos blocos, mais clareza para o paciente entender se vale agendar.</h2>
-        <p class="section-lead">
-          A proposta aqui é deixar a página objetiva: mostrar para quem a consulta online pode ser útil,
-          explicar o processo em poucos passos e facilitar o contato logo no início.
-        </p>
-      </div>
+  <AboutDoctor />
 
-      <div class="home-condition-list fade-up-delay">
-        {conditions.map((item) => (
-          <article class="home-condition card">
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
+  <CannabinoidExplainer />
 
-  <section class="section section-soft">
+  <ConditionsSection items={conditions} />
+
+  <HowItWorks steps={steps} />
+
+  <section class="section faq-section" id="faq">
     <div class="container">
-      <div class="home-process-head fade-up">
-        <p class="eyebrow">Como funciona</p>
-        <h2 class="section-title">Uma jornada curta, sem partes desnecessárias.</h2>
-      </div>
-
-      <div class="home-steps grid grid-3">
-        {steps.map((step) => (
-          <article class="home-step card fade-up-delay">
-            <p class="home-step__number">{step.number}</p>
-            <h3>{step.title}</h3>
-            <p>{step.description}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container doctor-feature">
-      <div class="doctor-feature__panel fade-up">
-        <p class="eyebrow">Sobre a médica</p>
-        <h2 class="section-title">Atendimento com experiência em urgência, emergência e telemedicina.</h2>
-        <p>{siteConfig.doctorBio}</p>
-        <p class="doctor-feature__credentials">{siteConfig.doctorCredentials}</p>
-      </div>
-
-      <aside class="doctor-feature__note card fade-up-delay">
-        <p class="eyebrow">Contato rápido</p>
-        <h3>Se quiser, o próximo passo pode ser só uma mensagem.</h3>
-        <p>
-          Sem excesso de explicação na página: o essencial já aparece aqui, e o restante pode seguir direto
-          para o WhatsApp ou para a página de contato.
+      <div class="faq-head reveal">
+        <p class="eyebrow">Perguntas Frequentes</p>
+        <h2 class="section-title">Respostas para as dúvidas mais comuns.</h2>
+        <p class="section-lead">
+          O tratamento com canabinóides levanta questões legítimas. Aqui respondemos as principais dúvidas com transparência.
         </p>
-        <div class="button-row">
-          <a class="button button-primary" href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer">
-            {siteConfig.whatsappLabel}
-          </a>
-          <a class="button button-secondary" href="/contact">Abrir contato</a>
-        </div>
-      </aside>
+      </div>
+      <FAQList items={faqs} />
     </div>
   </section>
 
-  <section class="section section-soft">
-    <div class="container faq-compact">
-      <div class="fade-up">
-        <p class="eyebrow">Dúvidas frequentes</p>
-        <h2 class="section-title">O restante pode ficar em poucas respostas objetivas.</h2>
-      </div>
-
-      <div class="faq-compact__grid">
-        {faqs.slice(0, 3).map((item) => (
-          <article class="faq-compact__item card fade-up-delay">
-            <h3>{item.question}</h3>
-            <p>{item.answer}</p>
-          </article>
-        ))}
-      </div>
-
-      <div class="faq-compact__footer">
-        <a class="button button-secondary" href="/faq">Ver página completa de FAQ</a>
-      </div>
-    </div>
-  </section>
+  <CTASection
+    eyebrow="Pronto para dar o próximo passo?"
+    title="Agende sua consulta com a Dra. Mariana."
+    description="Em uma consulta inicial, a Dra. Mariana avalia seu histórico, explica o tratamento e, se indicado, elabora um protocolo personalizado para o seu caso."
+    primaryLabel={siteConfig.whatsappLabel}
+    primaryHref={siteConfig.whatsappUrl}
+    secondaryLabel={`Enviar e-mail`}
+    secondaryHref={`mailto:${siteConfig.email}`}
+  />
 </MainLayout>
 
 <style>
-  .section-tight {
-    padding-top: 1.4rem;
+  .faq-section {
+    background: var(--color-surface-muted);
   }
 
-  .section-soft {
-    background: linear-gradient(180deg, rgba(250, 247, 237, 0.7), rgba(245, 240, 226, 0.9));
-  }
-
-  .home-trust {
+  .faq-head {
     display: grid;
     gap: 1rem;
-  }
-
-  .home-trust__item {
-    display: flex;
-    gap: 0.9rem;
-    align-items: center;
-    min-height: 100%;
-    padding: 1.1rem 1.2rem;
-  }
-
-  .home-trust__item span {
-    width: 0.75rem;
-    height: 0.75rem;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
-    flex: 0 0 auto;
-  }
-
-  .home-trust__item p,
-  .home-condition p,
-  .home-step p,
-  .faq-compact__item p,
-  .doctor-feature__panel p,
-  .doctor-feature__note p {
-    margin: 0;
-    color: var(--color-text-muted);
-  }
-
-  .home-editorial__grid,
-  .doctor-feature {
-    display: grid;
-    gap: 1.5rem;
-    align-items: start;
-  }
-
-  .home-condition-list,
-  .faq-compact__grid {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .home-condition h3,
-  .home-step h3,
-  .faq-compact__item h3,
-  .doctor-feature__note h3 {
-    margin: 0 0 0.65rem;
-    font-family: var(--font-heading);
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    line-height: 0.98;
-  }
-
-  .home-process-head {
-    margin-bottom: 1.5rem;
-  }
-
-  .home-step {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .home-step::after {
-    content: '';
-    position: absolute;
-    inset: auto -2rem -2rem auto;
-    width: 7rem;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(175, 201, 149, 0.32), transparent 68%);
-  }
-
-  .home-step__number {
-    margin-bottom: 0.7rem;
-    font-size: 0.9rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    color: var(--color-primary-dark);
-    text-transform: uppercase;
-  }
-
-  .doctor-feature__panel {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .doctor-feature__credentials {
-    font-weight: 700;
-    color: var(--color-text);
-  }
-
-  .doctor-feature__note {
-    display: grid;
-    gap: 1rem;
-    padding: 1.5rem;
-  }
-
-  .faq-compact {
-    display: grid;
-    gap: 1.5rem;
-  }
-
-  .faq-compact__footer {
-    display: flex;
-    justify-content: flex-start;
-  }
-
-  @media (min-width: 760px) {
-    .home-trust {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .home-condition-list,
-    .faq-compact__grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (min-width: 960px) {
-    .home-editorial__grid,
-    .doctor-feature {
-      grid-template-columns: 0.92fr 1.08fr;
-    }
-
-    .home-trust {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
+    margin-bottom: 2.5rem;
+    max-width: 680px;
   }
 </style>

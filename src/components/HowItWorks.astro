@@ -12,19 +12,19 @@ interface Props {
 const { steps } = Astro.props;
 ---
 
-<section class="section">
+<section class="section how-section" id="como-funciona">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head reveal">
       <p class="eyebrow">Como funciona</p>
-      <h2 class="section-title">Um processo simples, organizado e humano em cada contato.</h2>
+      <h2 class="section-title">Um processo simples, transparente e centrado em você.</h2>
       <p class="section-lead">
-        A estrutura abaixo transmite clareza operacional sem perder o tom acolhedor que um serviço médico premium precisa manter.
+        Do primeiro contato ao acompanhamento contínuo — cada etapa foi pensada para ser clara, segura e personalizada.
       </p>
     </div>
 
     <div class="grid grid-3 steps-grid">
-      {steps.map((step) => (
-        <article class="card step-card">
+      {steps.map((step, i) => (
+        <article class="card step-card reveal" style={`--reveal-i: ${i}`}>
           <p class="step-number">{step.number}</p>
           <h3>{step.title}</h3>
           <p>{step.description}</p>
@@ -35,41 +35,60 @@ const { steps } = Astro.props;
 </section>
 
 <style>
+  .how-section {
+    background: var(--color-surface-muted);
+  }
+
   .section-head {
     display: grid;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    max-width: 680px;
   }
 
   .step-card {
     position: relative;
     overflow: hidden;
+    display: grid;
+    gap: 0.8rem;
+    align-content: start;
   }
 
   .step-card::after {
     content: '';
     position: absolute;
-    inset: auto -2rem -2rem auto;
-    width: 8rem;
-    height: 8rem;
+    inset: auto -1.5rem -1.5rem auto;
+    width: 6rem;
+    height: 6rem;
     border-radius: 50%;
-    background: rgba(219, 234, 245, 0.54);
+    background: radial-gradient(circle, rgba(58, 191, 173, 0.08), transparent 70%);
+    pointer-events: none;
   }
 
   .step-number {
-    margin: 0 0 1.2rem;
-    color: var(--color-primary-dark);
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 2rem;
     font-weight: 800;
-    letter-spacing: 0.08em;
+    color: var(--color-teal);
+    letter-spacing: -0.03em;
+    line-height: 1;
   }
 
   .step-card h3 {
-    margin: 0 0 0.7rem;
-    font-size: 1.2rem;
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    letter-spacing: -0.01em;
   }
 
   .step-card p:last-child {
     margin: 0;
+    font-size: 0.92rem;
+    font-weight: 300;
     color: var(--color-text-muted);
+    line-height: 1.75;
   }
 </style>

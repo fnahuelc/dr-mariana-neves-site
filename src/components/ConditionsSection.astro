@@ -11,19 +11,20 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<section class="section">
+<section class="section" id="condicoes">
   <div class="container">
-    <div class="section-head">
-      <p class="eyebrow">Para quem é esta consulta</p>
-      <h2 class="section-title">Situações em que o atendimento online pode ser uma excelente escolha.</h2>
+    <div class="section-head reveal">
+      <p class="eyebrow">Condições tratadas</p>
+      <h2 class="section-title">Protocolos canabinóides para diversas condições clínicas.</h2>
       <p class="section-lead">
-        O objetivo aqui é orientar o paciente com transparência: mostrar onde o serviço agrega valor e deixar claro quando o cuidado presencial é indispensável.
+        Cada tratamento é personalizado após avaliação médica completa. A medicina canabinóide pode ser indicada como terapia principal ou adjuvante.
       </p>
     </div>
 
-    <div class="grid grid-2">
-      {items.map((item) => (
-        <article class="card condition-card">
+    <div class="grid grid-3 conditions-grid">
+      {items.map((item, i) => (
+        <article class="card condition-card reveal" style={`--reveal-i: ${i % 3}`}>
+          <div class="condition-dot" aria-hidden="true"></div>
           <h3>{item.title}</h3>
           <p>{item.description}</p>
         </article>
@@ -36,16 +37,37 @@ const { items } = Astro.props;
   .section-head {
     display: grid;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    max-width: 680px;
+  }
+
+  .condition-card {
+    display: grid;
+    gap: 0.8rem;
+    align-content: start;
+  }
+
+  .condition-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-teal);
   }
 
   .condition-card h3 {
-    margin: 0 0 0.65rem;
-    font-size: 1.2rem;
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    letter-spacing: -0.01em;
   }
 
   .condition-card p {
     margin: 0;
+    font-size: 0.9rem;
+    font-weight: 300;
     color: var(--color-text-muted);
+    line-height: 1.75;
   }
 </style>

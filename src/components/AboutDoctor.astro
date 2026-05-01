@@ -2,60 +2,96 @@
 import { siteConfig } from '../data/site';
 ---
 
-<section class="section surface-soft">
-  <div class="container split">
-    <div class="about-image card">
-      <div class="portrait-placeholder">Foto profissional da médica</div>
-      <p class="muted">Substitua por retrato oficial, fundo neutro e consistência com a marca visual.</p>
+<section class="section" id="sobre">
+  <div class="container split about-split">
+    <div class="about-image reveal">
+      <div class="portrait-placeholder" aria-label="Foto profissional da Dra. Mariana Neves">
+        <span>Foto da médica</span>
+        <small>Substitua por retrato profissional</small>
+      </div>
     </div>
 
-    <div class="about-copy">
+    <div class="about-copy reveal" style="--reveal-i: 1">
       <p class="eyebrow">Sobre a médica</p>
-      <h2 class="section-title">Autoridade serena, escuta real e um cuidado pensado para o digital.</h2>
+      <h2 class="section-title">Ciência, escuta e cuidado individualizado.</h2>
       <p class="section-lead">{siteConfig.doctorBio}</p>
-      <div class="card credentials-card">
-        <h3>Credenciais e posicionamento</h3>
-        <p>{siteConfig.doctorCredentials}</p>
-        <p>{siteConfig.crm}</p>
+      <div class="credentials-card card">
+        <p class="credentials-label">Credenciais</p>
+        <p class="credentials-value">{siteConfig.doctorCredentials}</p>
+        <p class="credentials-crm">{siteConfig.crm}</p>
       </div>
     </div>
   </div>
 </section>
 
 <style>
+  .about-split {
+    align-items: center;
+  }
+
   .about-image {
-    display: grid;
-    gap: 1rem;
+    /* placeholder until real photo is added */
   }
 
   .portrait-placeholder {
     min-height: 28rem;
-    border-radius: 1.9rem;
+    border-radius: var(--radius-md);
     display: grid;
     place-items: center;
+    place-content: center;
+    gap: 0.5rem;
     text-align: center;
-    padding: 1.5rem;
-    color: var(--color-primary-dark);
-    font-weight: 700;
+    padding: 2rem;
     background:
-      radial-gradient(circle at top, rgba(255, 255, 255, 0.86), transparent 38%),
-      linear-gradient(135deg, rgba(217, 232, 243, 0.9), rgba(255, 255, 255, 0.78));
+      linear-gradient(135deg, var(--color-surface) 0%, #1e3550 100%);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+  }
+
+  .portrait-placeholder span {
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--color-teal);
+  }
+
+  .portrait-placeholder small {
+    font-size: 0.82rem;
+    opacity: 0.6;
   }
 
   .about-copy {
     display: grid;
-    gap: 1rem;
+    gap: 1.2rem;
     align-content: center;
-  }
-
-  .credentials-card h3,
-  .credentials-card p {
-    margin: 0;
   }
 
   .credentials-card {
     display: grid;
-    gap: 0.55rem;
-    max-width: 32rem;
+    gap: 0.4rem;
+    max-width: 34rem;
+    border-left: 3px solid var(--color-teal);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+
+  .credentials-label {
+    margin: 0;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-teal);
+  }
+
+  .credentials-value {
+    margin: 0;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--color-text);
+  }
+
+  .credentials-crm {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
   }
 </style>

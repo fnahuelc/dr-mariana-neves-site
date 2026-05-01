@@ -1,0 +1,90 @@
+---
+const cards = [
+  {
+    icon: '◈',
+    title: 'O que são canabinóides?',
+    body: 'Canabinóides são compostos encontrados na planta Cannabis sativa. O CBD (canabidiol) é o principal utilizado na medicina, sem efeito psicoativo. Ele age no sistema endocanabinoide do corpo, que regula dor, inflamação, sono e humor.',
+  },
+  {
+    icon: '⟳',
+    title: 'Como agem no organismo?',
+    body: 'O sistema endocanabinoide humano possui receptores (CB1 e CB2) distribuídos pelo sistema nervoso e órgãos. Os canabinóides medicinais interagem com esses receptores, modulando processos inflamatórios, neurológicos e imunológicos.',
+  },
+  {
+    icon: '✓',
+    title: 'É seguro e legal?',
+    body: 'Sim. No Brasil, o uso terapêutico do CBD é regulamentado pela ANVISA e legal mediante prescrição médica. Tratamentos são conduzidos com protocolos baseados em evidências científicas, garantindo segurança e eficácia.',
+  },
+];
+---
+
+<section class="section explainer-section" id="o-que-e">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">O que é medicina canabinóide</p>
+      <h2 class="section-title">Uma abordagem médica, científica e personalizada.</h2>
+      <p class="section-lead">
+        A medicina canabinóide utiliza compostos da Cannabis de forma terapêutica, com indicação e acompanhamento médico. Não é medicina alternativa — é ciência aplicada à qualidade de vida.
+      </p>
+    </div>
+
+    <div class="grid grid-3 explainer-cards">
+      {cards.map((card, i) => (
+        <article class="card explainer-card reveal" style={`--reveal-i: ${i}`}>
+          <span class="explainer-icon" aria-hidden="true">{card.icon}</span>
+          <h3>{card.title}</h3>
+          <p>{card.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .explainer-section {
+    background: var(--color-surface-muted);
+  }
+
+  .section-head {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+  }
+
+  .explainer-card {
+    display: grid;
+    gap: 1rem;
+    align-content: start;
+  }
+
+  .explainer-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.8rem;
+    height: 2.8rem;
+    border: 1px solid var(--color-teal-border);
+    background: var(--color-teal-dim);
+    border-radius: 4px;
+    color: var(--color-teal);
+    font-size: 1.1rem;
+  }
+
+  .explainer-card h3 {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+  }
+
+  .explainer-card p {
+    margin: 0;
+    font-size: 0.92rem;
+    font-weight: 300;
+    color: var(--color-text-muted);
+    line-height: 1.75;
+  }
+</style>

@@ -12,9 +12,12 @@ const { items } = Astro.props;
 ---
 
 <div class="faq-list">
-  {items.map((item) => (
-    <details class="faq-item card">
-      <summary>{item.question}</summary>
+  {items.map((item, i) => (
+    <details class="faq-item reveal" style={`--reveal-i: ${i % 4}`}>
+      <summary>
+        <span class="faq-q">{item.question}</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </summary>
       <p>{item.answer}</p>
     </details>
   ))}
@@ -23,28 +26,94 @@ const { items } = Astro.props;
 <style>
   .faq-list {
     display: grid;
-    gap: 1rem;
+    gap: 0.75rem;
   }
 
   .faq-item {
-    padding: 0;
     overflow: hidden;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    transition: border-color 0.25s;
+  }
+
+  .faq-item[open] {
+    border-color: var(--color-teal-border);
   }
 
   .faq-item summary {
     cursor: pointer;
     list-style: none;
-    padding: 1.35rem 1.5rem;
-    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    user-select: none;
   }
 
   .faq-item summary::-webkit-details-marker {
     display: none;
   }
 
+  .faq-q {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+  }
+
+  .faq-icon {
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    border: 1px solid var(--color-teal-border);
+    background: var(--color-teal-dim);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: background 0.2s, transform 0.3s;
+  }
+
+  .faq-icon::before,
+  .faq-icon::after {
+    content: '';
+    position: absolute;
+    background: var(--color-teal);
+    border-radius: 1px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .faq-icon::before {
+    width: 8px; height: 1.5px;
+  }
+
+  .faq-icon::after {
+    width: 1.5px; height: 8px;
+  }
+
+  .faq-item[open] .faq-icon::after {
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+
+  .faq-item[open] .faq-icon {
+    background: var(--color-teal);
+  }
+
+  .faq-item[open] .faq-icon::before {
+    background: var(--color-bg);
+  }
+
   .faq-item p {
     margin: 0;
-    padding: 0 1.5rem 1.35rem;
+    padding: 0 1.5rem 1.25rem;
+    font-size: 0.93rem;
+    font-weight: 300;
     color: var(--color-text-muted);
+    line-height: 1.75;
   }
 </style>

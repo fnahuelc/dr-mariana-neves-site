@@ -1,6 +1,4 @@
 ---
-import { siteConfig } from '../data/site';
-
 interface Props {
   title: string;
   description: string;
@@ -13,457 +11,177 @@ interface Props {
 const { title, description, primaryLabel, primaryHref, secondaryLabel, secondaryHref } = Astro.props;
 ---
 
-<section class="hero section">
-  <div class="container hero-grid">
-    <div class="hero-copy fade-up">
-      <p class="eyebrow">Consulta online simples e direta</p>
-      <h1>{title}</h1>
-      <p class="hero-description">{description}</p>
-      <div class="hero-trust">
-        <strong>Agenda remota em todo o Brasil</strong>
-        <span>Clareza clínica, escuta qualificada e orientação segura para decidir o próximo passo.</span>
-      </div>
-      <div class="button-row">
-        <a class="button button-primary" href={primaryHref} target="_blank" rel="noreferrer">{primaryLabel}</a>
-        <a class="button button-secondary" href={secondaryHref}>{secondaryLabel}</a>
-      </div>
-      <ul class="inline-list hero-pills">
-        <li class="inline-pill">Consulta individual</li>
-        <li class="inline-pill">Telemedicina com cuidado humano</li>
-        <li class="inline-pill">Orientação clara e objetiva</li>
-      </ul>
-    </div>
+<section class="hero">
+  <!--
+    VIDEO BACKGROUND
+    1. Download from https://mixkit.co/free-stock-video/girl-meditating-in-yoga-pose-at-sunset-4803/
+    2. Rename the file to: hero-video.mp4
+    3. Place it in the public/ folder of this project
+    The gradient below is shown as fallback until the video file is added.
+  -->
+  <video class="hero-video" autoplay muted loop playsinline aria-hidden="true">
+    <source src="/mixkit-girl-meditating-in-yoga-pose-at-sunset-4803-hd-ready.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-overlay" aria-hidden="true"></div>
 
-    <div class="hero-card fade-up-delay">
-      <div class="hero-visual" aria-hidden="true">
-        <div class="hero-orbit hero-orbit-a"></div>
-        <div class="hero-orbit hero-orbit-b"></div>
-        <div class="consult-window">
-          <div class="consult-window__top">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div class="consult-window__body">
-            <div class="doctor-frame">
-              <div class="doctor-avatar"></div>
-              <div>
-                <p class="badge">Atendimento online</p>
-                <h2>{siteConfig.brandName}</h2>
-                <p>{siteConfig.specialty}</p>
-              </div>
-            </div>
-            <div class="wave-lines">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <div class="status-grid">
-              <article>
-                <strong>Escuta</strong>
-                <p>consulta conduzida com calma</p>
-              </article>
-              <article>
-                <strong>Plano</strong>
-                <p>conduta definida com clareza</p>
-              </article>
-            </div>
-          </div>
-        </div>
-        <div class="floating-note floating-note-primary">
-          <span>Próximo horário</span>
-          <strong>Esta semana</strong>
-        </div>
-        <div class="floating-note floating-note-secondary">
-          <span>Fluxo simples</span>
-          <strong>Mensagem, consulta, orientação</strong>
-        </div>
-        <div class="hero-marquee">
-          <div class="hero-marquee__track">
-            <span>Teleconsulta</span>
-            <span>Revisão de exames</span>
-            <span>Segunda opinião</span>
-            <span>Acompanhamento</span>
-            <span>Teleconsulta</span>
-            <span>Revisão de exames</span>
-            <span>Segunda opinião</span>
-            <span>Acompanhamento</span>
-          </div>
-        </div>
-      </div>
+  <div class="container hero-inner">
+    <p class="eyebrow hero-eyebrow">Medicina Canabinóide</p>
+    <h1 class="hero-title" set:html={title.replace(/\./g, '.<br>')}></h1>
+    <p class="hero-sub">{description}</p>
+    <div class="button-row hero-btns">
+      <a class="button button-primary" href={primaryHref} target="_blank" rel="noreferrer">{primaryLabel}</a>
+      <a class="button button-secondary" href={secondaryHref}>{secondaryLabel}</a>
     </div>
+  </div>
+
+  <div class="hero-scroll-hint" aria-hidden="true">
+    <span></span>
   </div>
 </section>
 
 <style>
   .hero {
-    padding-top: 2.5rem;
-  }
-
-  .hero-grid {
-    display: grid;
-    gap: 2rem;
-    align-items: center;
-  }
-
-  .hero-copy h1 {
-    margin: 1rem 0 1.25rem;
-    font-family: var(--font-heading);
-    font-size: clamp(3.4rem, 7vw, 6.1rem);
-    line-height: 0.9;
-    letter-spacing: -0.04em;
-  }
-
-  .hero-description {
-    max-width: 38rem;
-    margin: 0 0 1.6rem;
-    font-size: 1.08rem;
-    color: var(--color-text-muted);
-  }
-
-  .hero-trust {
-    display: grid;
-    gap: 0.2rem;
-    max-width: 34rem;
-    margin: 0 0 1.5rem;
-    padding-left: 1rem;
-    border-left: 3px solid rgba(61, 112, 74, 0.24);
-  }
-
-  .hero-trust strong {
-    font-size: 1rem;
-  }
-
-  .hero-trust span {
-    color: var(--color-text-muted);
-  }
-
-  .hero-pills {
-    margin-top: 1.35rem;
-  }
-
-  .hero-card {
     position: relative;
-    min-height: 34rem;
-  }
-
-  .hero-visual {
-    position: relative;
-    display: grid;
-    place-items: center;
-    min-height: 34rem;
-    padding: 1.4rem;
+    height: 100svh;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     overflow: hidden;
-    border: 1px solid rgba(57, 91, 68, 0.12);
-    border-radius: 2rem;
-    background:
-      radial-gradient(circle at top, rgba(220, 232, 197, 0.78), transparent 38%),
-      linear-gradient(180deg, rgba(255, 250, 240, 0.98), rgba(243, 239, 224, 0.94));
-    box-shadow: 0 32px 60px -40px rgba(42, 64, 40, 0.42);
   }
 
-  .hero-orbit {
+  /* Gradient fallback shown when video hasn't loaded */
+  .hero::before {
+    content: '';
     position: absolute;
-    border-radius: 999px;
-    border: 1px dashed rgba(61, 112, 74, 0.18);
-    animation: spin 26s linear infinite;
+    inset: 0;
+    background:
+      linear-gradient(160deg,
+        rgba(10, 20, 35, 0.5) 0%,
+        rgba(10, 25, 40, 0.35) 100%),
+      linear-gradient(135deg,
+        #1a3a50 0%,
+        #2a5060 25%,
+        #3a7080 50%,
+        #254555 75%,
+        #0d1b2a 100%);
+    z-index: 0;
   }
 
-  .hero-orbit-a {
-    width: 28rem;
-    height: 28rem;
-  }
-
-  .hero-orbit-b {
-    width: 20rem;
-    height: 20rem;
-    animation-direction: reverse;
-    animation-duration: 18s;
-  }
-
-  .consult-window {
-    position: relative;
-    width: min(100%, 27rem);
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     z-index: 1;
-    border: 1px solid rgba(57, 91, 68, 0.14);
-    border-radius: 1.7rem;
-    background: rgba(255, 255, 255, 0.76);
-    backdrop-filter: blur(16px);
-    box-shadow: 0 28px 50px -34px rgba(45, 67, 44, 0.48);
   }
 
-  .consult-window__top {
-    display: flex;
-    gap: 0.45rem;
-    padding: 0.9rem 1rem;
-    border-bottom: 1px solid rgba(57, 91, 68, 0.09);
-  }
-
-  .consult-window__top span {
-    width: 0.62rem;
-    height: 0.62rem;
-    border-radius: 50%;
-    background: rgba(61, 112, 74, 0.24);
-  }
-
-  .consult-window__body {
-    display: grid;
-    gap: 1.2rem;
-    padding: 1.2rem;
-  }
-
-  .doctor-frame {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 1rem;
-    align-items: center;
-  }
-
-  .doctor-avatar {
-    width: 5.75rem;
-    aspect-ratio: 1;
-    border-radius: 1.4rem;
-    background:
-      radial-gradient(circle at 52% 30%, rgba(255, 255, 255, 0.7), transparent 20%),
-      linear-gradient(145deg, #6f9d7a, #2d553f);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
-  }
-
-  .consult-window h2 {
-    margin: 0.1rem 0 0.25rem;
-    font-family: var(--font-heading);
-    font-size: clamp(1.9rem, 4vw, 2.4rem);
-    line-height: 0.95;
-  }
-
-  .consult-window p {
-    margin: 0;
-  }
-
-  .badge {
-    display: inline-flex;
-    width: fit-content;
-    margin-bottom: 0.4rem;
-    padding: 0.4rem 0.78rem;
-    border-radius: var(--radius-pill);
-    background: rgba(224, 237, 203, 0.82);
-    color: #355d44;
-    font-size: 0.85rem;
-    font-weight: 700;
-  }
-
-  .wave-lines {
-    display: grid;
-    gap: 0.7rem;
-  }
-
-  .wave-lines span {
-    height: 0.72rem;
-    border-radius: 999px;
-    background: linear-gradient(90deg, rgba(112, 153, 121, 0.18), rgba(61, 112, 74, 0.58), rgba(112, 153, 121, 0.18));
-    background-size: 200% 100%;
-    animation: pulse-line 4s ease-in-out infinite;
-  }
-
-  .wave-lines span:nth-child(2) {
-    width: 88%;
-    animation-delay: 180ms;
-  }
-
-  .wave-lines span:nth-child(3) {
-    width: 72%;
-    animation-delay: 360ms;
-  }
-
-  .wave-lines span:nth-child(4) {
-    width: 80%;
-    animation-delay: 540ms;
-  }
-
-  .status-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.9rem;
-  }
-
-  .status-grid article {
-    padding: 0.95rem;
-    border-radius: 1.2rem;
-    background: rgba(250, 247, 237, 0.88);
-    border: 1px solid rgba(57, 91, 68, 0.1);
-  }
-
-  .status-grid strong {
-    display: block;
-    margin-bottom: 0.25rem;
-  }
-
-  .status-grid p {
-    font-size: 0.92rem;
-    color: var(--color-text-muted);
-  }
-
-  .floating-note {
+  .hero-overlay {
     position: absolute;
+    inset: 0;
+    background: rgba(10, 20, 35, 0.55);
     z-index: 2;
-    display: grid;
-    gap: 0.15rem;
-    padding: 0.9rem 1rem;
-    border-radius: 1.1rem;
-    background: rgba(255, 255, 255, 0.88);
-    border: 1px solid rgba(57, 91, 68, 0.12);
-    box-shadow: 0 18px 35px -28px rgba(45, 67, 44, 0.5);
-    animation: bob 5.5s ease-in-out infinite;
   }
 
-  .floating-note span {
-    font-size: 0.82rem;
-    color: var(--color-text-muted);
+  .hero-inner {
+    position: relative;
+    z-index: 3;
+    padding-bottom: 7rem;
+    max-width: 780px;
   }
 
-  .floating-note strong {
-    font-size: 0.98rem;
+  /* Entrance animations — staggered on load */
+  .hero-eyebrow {
+    animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 50ms;
   }
 
-  .floating-note-primary {
-    top: 2.4rem;
-    right: 1.6rem;
+  .hero-title {
+    animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 160ms;
   }
 
-  .floating-note-secondary {
-    bottom: 4.6rem;
-    left: 1.4rem;
-    animation-delay: 600ms;
+  .hero-sub {
+    animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 290ms;
   }
 
-  .hero-marquee {
+  .hero-btns {
+    animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 420ms;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero-title {
+    margin: 1rem 0 1.2rem;
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    color: #fff;
+  }
+
+  .hero-title :global(.accent) {
+    color: var(--color-teal);
+  }
+
+  .hero-eyebrow {
+    margin-bottom: 0;
+  }
+
+  .hero-sub {
+    font-weight: 300;
+    font-size: 1.05rem;
+    color: rgba(168, 196, 184, 0.9);
+    max-width: 500px;
+    line-height: 1.75;
+    margin: 0 0 2rem;
+  }
+
+  /* Animated scroll indicator */
+  .hero-scroll-hint {
     position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 1rem 0;
-    overflow: hidden;
-    background: rgba(61, 112, 74, 0.06);
-    border-top: 1px solid rgba(57, 91, 68, 0.08);
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 800ms;
   }
 
-  .hero-marquee__track {
-    display: flex;
-    gap: 0.9rem;
-    width: max-content;
-    padding-left: 1rem;
-    animation: marquee 22s linear infinite;
+  .hero-scroll-hint span {
+    display: block;
+    width: 1.5px;
+    height: 2.5rem;
+    background: linear-gradient(to bottom, var(--color-teal), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
   }
 
-  .hero-marquee__track span {
-    padding: 0.6rem 0.95rem;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.82);
-    border: 1px solid rgba(57, 91, 68, 0.1);
-    font-size: 0.9rem;
-    white-space: nowrap;
-  }
-
-  @media (min-width: 920px) {
-    .hero-grid {
-      grid-template-columns: 1.06fr 0.94fr;
-    }
-  }
-
-  @media (max-width: 919px) {
-    .hero-card {
-      min-height: auto;
-    }
-
-    .hero-visual {
-      min-height: 30rem;
-    }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(0.7); transform-origin: top; }
+    50%       { opacity: 1;   transform: scaleY(1);   transform-origin: top; }
   }
 
   @media (max-width: 640px) {
-    .hero-copy h1 {
-      font-size: clamp(2.8rem, 15vw, 4rem);
+    .hero-inner {
+      padding-bottom: 6rem;
     }
 
-    .hero-visual {
-      min-height: 27rem;
-      padding: 1rem;
-    }
-
-    .hero-orbit-a {
-      width: 21rem;
-      height: 21rem;
-    }
-
-    .hero-orbit-b {
-      width: 15rem;
-      height: 15rem;
-    }
-
-    .doctor-frame {
-      grid-template-columns: 1fr;
-    }
-
-    .status-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .floating-note-primary {
-      top: 1rem;
-      right: 1rem;
-    }
-
-    .floating-note-secondary {
-      left: 1rem;
-      bottom: 4.2rem;
-      right: 1rem;
-    }
-  }
-
-  @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  @keyframes bob {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-
-  @keyframes marquee {
-    from {
-      transform: translateX(0);
-    }
-
-    to {
-      transform: translateX(-50%);
-    }
-  }
-
-  @keyframes pulse-line {
-    0%,
-    100% {
-      background-position: 0% 50%;
-      transform: scaleX(0.98);
-      opacity: 0.72;
-    }
-
-    50% {
-      background-position: 100% 50%;
-      transform: scaleX(1);
-      opacity: 1;
+    .hero-title {
+      font-size: clamp(2.6rem, 14vw, 3.5rem);
     }
   }
 </style>

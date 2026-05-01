@@ -2,19 +2,18 @@
 import { siteConfig } from '../data/site';
 
 const links = [
-  { href: '/', label: 'Início' },
-  { href: '/faq', label: 'FAQ' },
-  { href: '/contact', label: 'Contato' },
-  { href: '/privacy-policy', label: 'Privacidade' },
-  { href: '/terms', label: 'Termos' }
+  { href: '#sobre',          label: 'Sobre' },
+  { href: '#condicoes',      label: 'Tratamentos' },
+  { href: '#como-funciona',  label: 'Como Funciona' },
+  { href: '#faq',            label: 'FAQ' },
 ];
 ---
 
-<header class="site-header">
+<header class="site-header" id="site-header">
   <div class="container header-shell">
     <a class="brand" href="/" aria-label={`Página inicial de ${siteConfig.brandName}`}>
-      <span class="brand-mark">+</span>
-      <span>
+      <span class="brand-mark" aria-hidden="true">+</span>
+      <span class="brand-text">
         <strong>{siteConfig.brandName}</strong>
         <small>{siteConfig.specialty}</small>
       </span>
@@ -28,7 +27,12 @@ const links = [
       </ul>
     </nav>
 
-    <a class="button button-primary header-cta" href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer">
+    <a
+      class="button button-primary header-cta"
+      href={siteConfig.whatsappUrl}
+      target="_blank"
+      rel="noreferrer"
+    >
       {siteConfig.whatsappLabel}
     </a>
   </div>
@@ -38,11 +42,17 @@ const links = [
   .site-header {
     position: sticky;
     top: 0;
-    z-index: 20;
-    padding: 1rem 0;
-    backdrop-filter: blur(18px);
-    background: rgba(248, 251, 254, 0.78);
-    border-bottom: 1px solid rgba(56, 97, 128, 0.08);
+    z-index: 50;
+    padding: 1.1rem 0;
+    background: rgba(13, 27, 42, 0);
+    border-bottom: 1px solid transparent;
+    transition: background 0.3s ease, border-color 0.3s ease;
+  }
+
+  .site-header.scrolled {
+    background: rgba(13, 27, 42, 0.96);
+    border-bottom-color: var(--color-border-subtle);
+    backdrop-filter: blur(12px);
   }
 
   .header-shell {
@@ -56,51 +66,65 @@ const links = [
   .brand {
     display: inline-flex;
     align-items: center;
-    gap: 0.8rem;
-    min-width: 14rem;
-  }
-
-  .brand strong {
-    display: block;
-    font-size: 1rem;
-  }
-
-  .brand small {
-    display: block;
-    color: var(--color-text-muted);
+    gap: 0.75rem;
+    min-width: 13rem;
   }
 
   .brand-mark {
     display: grid;
     place-items: center;
-    width: 2.8rem;
-    height: 2.8rem;
-    border-radius: 1rem;
-    background: linear-gradient(135deg, #dbeaf5, #ffffff);
-    color: var(--color-primary-dark);
-    font-size: 1.5rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 4px;
+    background: var(--color-teal);
+    color: var(--color-bg);
+    font-size: 1.3rem;
     font-weight: 800;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    font-family: var(--font-heading);
+    flex-shrink: 0;
+  }
+
+  .brand-text strong {
+    display: block;
+    font-size: 0.95rem;
+    font-family: var(--font-heading);
+    color: #fff;
+  }
+
+  .brand-text small {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.04em;
   }
 
   .nav-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem 1.2rem;
+    gap: 0.25rem 0.5rem;
     padding: 0;
     margin: 0;
     list-style: none;
-    color: var(--color-text-muted);
+  }
+
+  .nav-list a {
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.65);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.7rem;
+    transition: color 0.2s;
   }
 
   .nav-list a:hover,
   .nav-list a:focus-visible {
-    color: var(--color-primary-dark);
+    color: var(--color-teal);
   }
 
   .header-cta {
-    min-width: 11rem;
+    min-width: 10rem;
   }
 
   @media (max-width: 940px) {
@@ -124,3 +148,21 @@ const links = [
     }
   }
 </style>
+
+<script is:inline>
+  (function () {
+    var header = document.getElementById('site-header');
+    if (!header) return;
+
+    function update() {
+      if (window.scrollY > 60) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+  })();
+</script>
