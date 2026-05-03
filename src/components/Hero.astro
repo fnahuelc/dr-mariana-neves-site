@@ -79,6 +79,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     z-index: 1;
   }
 
+  /* On mobile portrait, the landscape video crops too aggressively.
+     The gradient fallback (defined in .hero::before) shows instead. */
+  @media (max-width: 768px) {
+    .hero-video {
+      display: none;
+    }
+  }
+
   .hero-overlay {
     position: absolute;
     inset: 0;
