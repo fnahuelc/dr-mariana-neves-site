@@ -1,19 +1,19 @@
 // TODO: Replace all placeholder values (CRM, WhatsApp, email, phone, LinkedIn) before publishing.
 export const siteConfig = {
   brandName: 'Dra. Mariana Neves',
-  specialty: 'Medicina Canabinóide',
-  crm: 'CRM/UF 000000',
+  specialty: 'Medicina Endocanabinóide',
+  crm: 'CRM-MG 78826',
   heroTitle: 'Ciência. Natureza. Bem-estar.',
   heroDescription:
-    'Tratamentos médicos personalizados com canabinóides para quem busca qualidade de vida com base científica e cuidado individualizado.',
-  siteTitle: 'Dra. Mariana Neves | Medicina Canabinóide',
+    'Tratamentos médicos com canabinóides para quem busca qualidade de vida com base científica e cuidado individualizado.',
+  siteTitle: 'Dra. Mariana Neves | Medicina Endocanabinóide',
   siteDescription:
-    'Consultas médicas especializadas em medicina canabinóide. Tratamentos com CBD para dor crônica, ansiedade, sono, epilepsia e suporte oncológico.',
+    'Consultas médicas com formação em medicina endocanabinóide. Tratamentos com CBD para dor crônica, ansiedade, sono, epilepsia e suporte oncológico.',
   whatsappUrl: 'https://wa.me/553186711996',
   whatsappLabel: 'Agendar Consulta',
   email: 'mariana.hcufmg@gmail.com',
   phoneDisplay: '+55 31 8671-1996',
-  contactHours: 'Segunda a sexta, das 8h às 18h',
+  contactHours: '',
   onlineCoverage: 'Atendimento online para pacientes em todo o Brasil.',
   addressLabel: 'Consulta online mediante agendamento prévio.',
   linkedinUrl: 'https://www.linkedin.com/in/mariana-neves-232a16279/',
@@ -21,10 +21,10 @@ export const siteConfig = {
   disclaimer:
     'Este site apresenta informações institucionais e não substitui avaliação médica individual. O uso de canabinóides medicinais está sujeito à avaliação clínica e à legislação vigente no Brasil.',
   footerNote:
-    'Revise CRM, contatos e textos legais antes do lançamento.',
+    'Revise contatos e textos legais antes do lançamento.',
   doctorBio:
-    'A Dra. Mariana Neves é médica especialista em medicina canabinóide, com formação sólida e dedicação à pesquisa clínica dos efeitos terapêuticos do CBD e outros canabinóides. Atende pacientes com dor crônica, ansiedade, distúrbios do sono, condições neurológicas e suporte oncológico, sempre com protocolos baseados em evidências científicas e adaptados à história de cada paciente.',
-  doctorCredentials: 'Médica | Especialista em Medicina Canabinóide'
+    'A Dra. Mariana Neves é médica com residência em Medicina de Emergência e cinco anos de experiência clínica em pronto-socorro, atendimento pré-hospitalar e terapia intensiva. Sua formação em medicina endocanabinóide complementa um perfil clínico rigoroso e orientado por evidências — com publicações em pesquisa médica e coautoria de livro na área. Atuou como preceptora de médicos emergencistas em Fernando de Noronha e teve experiência internacional com a Cruz Vermelha em Copenhague. Aliando precisão diagnóstica a uma escuta genuína, oferece um atendimento que une ciência, humanidade e cuidado individualizado.',
+  doctorCredentials: 'Médica | Residência em Medicina de Emergência | Formação em Medicina Endocanabinóide'
 } as const;
 
 export const stats = [

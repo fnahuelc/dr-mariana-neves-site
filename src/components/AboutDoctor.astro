@@ -1,14 +1,17 @@
 ---
 import { siteConfig } from '../data/site';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section class="section" id="sobre">
   <div class="container split about-split">
     <div class="about-image reveal">
-      <div class="portrait-placeholder" aria-label="Foto profissional da Dra. Mariana Neves">
-        <span>Foto da médica</span>
-        <small>Substitua por retrato profissional</small>
-      </div>
+      <img
+        src={`${base}/marianamoreiraneves.png`}
+        alt="Dra. Mariana Neves"
+        class="doctor-photo"
+      />
     </div>
 
     <div class="about-copy reveal" style="--reveal-i: 1">
@@ -29,34 +32,16 @@ import { siteConfig } from '../data/site';
     align-items: center;
   }
 
-  .about-image {
-    /* placeholder until real photo is added */
-  }
-
-  .portrait-placeholder {
+  .doctor-photo {
+    width: 100%;
+    height: 100%;
     min-height: 28rem;
+    max-height: 42rem;
+    object-fit: cover;
+    object-position: top center;
     border-radius: var(--radius-md);
-    display: grid;
-    place-items: center;
-    place-content: center;
-    gap: 0.5rem;
-    text-align: center;
-    padding: 2rem;
-    background:
-      linear-gradient(135deg, var(--color-surface) 0%, #1e3550 100%);
     border: 1px solid var(--color-border);
-    color: var(--color-text-muted);
-  }
-
-  .portrait-placeholder span {
-    font-weight: 500;
-    font-size: 1rem;
-    color: var(--color-teal);
-  }
-
-  .portrait-placeholder small {
-    font-size: 0.82rem;
-    opacity: 0.6;
+    display: block;
   }
 
   .about-copy {
