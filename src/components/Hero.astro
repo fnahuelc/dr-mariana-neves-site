@@ -79,12 +79,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     z-index: 1;
   }
 
-  /* On mobile portrait, show the full video (no crop) anchored to the top.
-     The dark navy background (from .hero::before) fills the space below it. */
+  /* On mobile, reduce hero height so the video is less cropped (~55-60% of x-axis visible) */
   @media (max-width: 768px) {
+    .hero {
+      height: 50svh;
+      min-height: 420px;
+    }
     .hero-video {
-      object-fit: contain;
-      object-position: center top;
+      object-fit: cover;
+      object-position: center center;
     }
   }
 
@@ -187,11 +190,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   @media (max-width: 640px) {
     .hero-inner {
-      padding-bottom: 6rem;
+      padding-bottom: 2.5rem;
     }
 
     .hero-title {
-      font-size: clamp(2.6rem, 14vw, 3.5rem);
+      font-size: clamp(2rem, 10vw, 2.6rem);
+    }
+
+    .hero-sub {
+      font-size: 0.95rem;
     }
   }
 </style>
